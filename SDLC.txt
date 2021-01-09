@@ -1,0 +1,15 @@
+Software Development Life Cycle
+
+
+
+1) Planning
+
+    Software Requirement Specification.
+
+    Block header
+
+
+
+    Block
+
+    

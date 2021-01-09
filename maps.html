@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""/>
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""></script>
+    <style>
+      #map {
+        height: 360px;
+         <!--  height -->
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>MAP</h1>
+    <div id="map"></div>
+    <script>
+      var locations = [
+["LOCATION_1", 11.8166, 122.0942],
+["LOCATION_2", 11.9804, 121.9189],
+["LOCATION_3", 10.7202, 122.5621],
+["LOCATION_4", 11.3889, 122.6277],
+["LOCATION_5", 10.5929, 122.6325]
+];
+
+var map = L.map('map').setView([11.206051, 122.447886], 8);
+mapLink =
+'<a href="http://openstreetmap.org">OpenStreetMap</a>';
+L.tileLayer(
+'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: '&copy; ' + mapLink + ' Contributors',
+maxZoom: 18,
+}).addTo(map);
+
+for (var i = 0; i < locations.length; i++) {
+marker = new L.marker([locations[i][1], locations[i][2]])
+.bindPopup(locations[i][0])
+.addTo(map);
+}
+
+    </script>
+  </body>
+</html>
